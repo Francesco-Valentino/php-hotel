@@ -52,18 +52,47 @@
     </head>
 
     <body>
-        <?php foreach($hotels as $hotel){ ?>
-            <pre>
-                <?php echo $hotel['name'] ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Hotel Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Is there a parking lot?</th>
+                    <th scope="col">Vote</th>
+                    <th scope="col">Distance to center</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($hotels as $hotel){ ?>
+                    <tr>
+                        <th scope="row">
+                            <?php echo $hotel['name'] ?>
+                        </th>
 
-                <?php echo $hotel['description'] ?>
+                        <td>
+                            <?php echo $hotel['description'] ?>
+                        </td>
+                            
+                        <td>
+                            <?php 
+                                if($hotel["parking"] == true){
+                                    echo "Yes";
+                                } else{
+                                    echo "No";
+                                };
+                            ?>
+                        </td>
+                            
+                        <td>
+                            <?php echo $hotel['vote'] ?>
+                        </td>
 
-                <?php echo $hotel['parking'] ?>
-
-                <?php echo $hotel['vote'] ?>
-
-                <?php echo $hotel['distance_to_center'] ?>
-            </pre>
-        <?php } ?>
+                        <td>
+                            <?php echo $hotel['distance_to_center'] ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </body>
 </html>
